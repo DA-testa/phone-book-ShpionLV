@@ -1,4 +1,5 @@
 # python3
+# Artūrs Brūvers 221RDB511 DS-14
 
 class Query:
     def __init__(self, query):
