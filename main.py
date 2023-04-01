@@ -17,21 +17,17 @@ def write_responses(result):
 
 def process_queries(queries):
     result = []
-    # Use dictionary to store contacts by number
     contacts = {}
     for cur_query in queries:
         if cur_query.type == 'add':
-            # Use set to store phone numbers of existing contacts
             if cur_query.number in contacts:
                 contacts[cur_query.number].name = cur_query.name
             else:
                 contacts[cur_query.number] = cur_query
         elif cur_query.type == 'del':
-            # Remove contact from dictionary
             if cur_query.number in contacts:
                 del contacts[cur_query.number]
         else:
-            # Look up contact in dictionary
             if cur_query.number in contacts:
                 result.append(contacts[cur_query.number].name)
             else:
